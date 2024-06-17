@@ -45,6 +45,7 @@ router.post('/', async (req, res) => {
   catch (err) {
     console.log(err)
     res.status(500).json('err creating tags');
+  }
 });
 
 router.put('/:id', async (req, res) => {
@@ -62,9 +63,10 @@ router.put('/:id', async (req, res) => {
   catch (err) {
     console.log(err)
     res.status(500).json('err updating tags');
+  }
 });
 
-router.delete('/:id', (req, res) => {
+router.delete('/:id', async (req, res) => {
   // delete on tag by its `id` value
   try {
     const Tag = await Tag.destroy({
